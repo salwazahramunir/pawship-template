@@ -8,37 +8,37 @@ const categories = [
     name: "Food",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/06/categories-1.jpg",
-    href: "/store?category=food",
+    href: "/catalog",
   },
   {
     name: "Pharmacy",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-2.jpg",
-    href: "/store?category=pharmacy",
+    href: "/catalog",
   },
   {
     name: "Furniture",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/06/categories-3.jpg",
-    href: "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/06/categories-3.jpg",
+    href: "/catalog",
   },
   {
     name: "Toys",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/06/categories-4.jpg",
-    href: "/store?category=toys",
+    href: "/catalog",
   },
   {
     name: "Beds",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-5.jpg",
-    href: "/store?category=beds",
+    href: "/catalog",
   },
   {
     name: "Bowls",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-6.jpg",
-    href: "/store?category=bowls",
+    href: "/catalog",
   },
   // {
   //   name: "Treats",
@@ -50,19 +50,19 @@ const categories = [
     name: "Crates",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-8.jpg",
-    href: "/store?category=crates",
+    href: "/catalog",
   },
   {
     name: "Flea & Tick",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-9.jpg",
-    href: "/store?category=flea&tick",
+    href: "/catalog",
   },
   {
     name: "Clothings",
     image:
       "https://demo2.themelexus.com/ziggy/wp-content/uploads/2022/05/categories-10.jpg",
-    href: "/store?category=clothing",
+    href: "/catalog",
   },
 ];
 
