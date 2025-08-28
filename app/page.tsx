@@ -13,8 +13,8 @@ export default function HomePage() {
         <FeaturedCategories />
         <FeaturedProducts />
         {/* <WhyChooseUs /> */}
-        {/* <CampaignSection /> */}
-        {/* <LatestBlog /> */}
+        <CampaignSection />
+        <LatestBlog />
       </main>
     </div>
   );

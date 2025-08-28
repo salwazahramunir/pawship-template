@@ -179,10 +179,10 @@ export default function StoresPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       <main>
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+        {/* <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <Badge className="bg-primary text-primary-foreground">
@@ -198,10 +198,36 @@ export default function StoresPage() {
               </p>
             </div>
           </div>
+        </section> */}
+
+        <section
+          className="relative h-[60vh] overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://i.pinimg.com/736x/f6/76/20/f67620ed1c3358fbc457956569ff6fad.jpg')",
+          }}
+        >
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          {/* Overlay hitam */}
+          <div className="relative z-10 flex items-center justify-center h-full text-white">
+            <div className="max-w-4xl mx-auto text-center space-y-6">
+              <Badge className="bg-primary text-primary-foreground">
+                Find Us
+              </Badge>
+              <h1 className="text-4xl lg:text-6xl font-bold text-foreground">
+                Visit Our <span className="text-primary">Stores</span>
+              </h1>
+              {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Experience Paw Ship products in person at our stores across
+                Indonesia. Get expert advice, try products, and discover the
+                perfect items for your beloved pets.
+              </p> */}
+            </div>
+          </div>
         </section>
 
         {/* Store Locator */}
-        <section className="py-20 bg-background">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -213,7 +239,7 @@ export default function StoresPage() {
             </div>
 
             {/* Search and Filter */}
-            <div className="max-w-4xl mx-auto mb-12">
+            {/* <div className="max-w-4xl mx-auto mb-12">
               <div className="grid md:grid-cols-3 gap-4">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-5 w-5" />
@@ -250,14 +276,14 @@ export default function StoresPage() {
                   </SelectContent>
                 </Select>
               </div>
-            </div>
+            </div> */}
 
             {/* Store Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {stores.map((store, index) => (
                 <div
                   key={index}
-                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-[1.01] border border-transparent hover:border-orange-500/40 group"
+                  className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-[1.01] border border-transparent hover:border-orange-500/100 group"
                 >
                   <div className="relative">
                     <img
@@ -312,14 +338,14 @@ export default function StoresPage() {
                       </div>
                     </div>
 
-                    <div className="flex space-x-2">
+                    {/* <div className="flex space-x-2">
                       <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white py-2 px-3 rounded-md font-medium text-sm transition-colors">
                         Get Directions
                       </button>
                       <button className="flex-1 border border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white py-2 px-3 rounded-md font-medium text-sm transition-colors">
                         Call Store
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))}
@@ -328,7 +354,7 @@ export default function StoresPage() {
         </section>
 
         {/* Store Types */}
-        <section className="py-20 bg-muted/30">
+        {/* <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -377,10 +403,10 @@ export default function StoresPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
         {/* Online Partners */}
-        <section className="py-20 bg-background">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -395,7 +421,7 @@ export default function StoresPage() {
               {onlinePartners.map((partner, index) => (
                 <Card
                   key={index}
-                  className="text-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl border border-transparent hover:border-primary/40 rounded-2xl group"
+                  className="text-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:scale-[1.01] hover:shadow-2xl border border-transparent hover:border-primary/60 rounded-2xl group shadow-lg bg-white"
                 >
                   <CardContent className="p-6 space-y-4">
                     <div className="h-16 flex items-center justify-center">
@@ -436,7 +462,7 @@ export default function StoresPage() {
         </section>
 
         {/* Become a Partner */}
-        <section className="py-20 bg-primary text-primary-foreground">
+        {/* <section className="py-20 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto text-center space-y-6">
               <h2 className="text-3xl lg:text-4xl font-bold mb-4">
@@ -460,7 +486,7 @@ export default function StoresPage() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );

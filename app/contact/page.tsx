@@ -29,9 +29,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+      {/* <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <Badge className="bg-primary text-primary-foreground">
@@ -44,6 +44,31 @@ const Contact = () => {
               Have questions about our products or need assistance? Our friendly
               team is ready to help you and your pet find exactly what you need.
             </p>
+          </div>
+        </div>
+      </section> */}
+
+      <section
+        className="relative h-[60vh] overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/736x/59/eb/44/59eb44067105c010445fadca18eb7c1d.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Overlay hitam */}
+        <div className="relative z-10 flex items-center justify-center h-full text-white">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <Badge className="bg-primary text-primary-foreground">
+              Get in Touch
+            </Badge>
+            <h1 className="text-4xl lg:text-6xl font-bold">
+              We're Here to <span className="text-primary">Help</span>
+            </h1>
+            {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Have questions about our products or need assistance? Our friendly
+              team is ready to help you and your pet find exactly what you need.
+            </p> */}
           </div>
         </div>
       </section>

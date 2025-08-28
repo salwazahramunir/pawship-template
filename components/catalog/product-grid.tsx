@@ -35,21 +35,6 @@ export function ProductGrid({ products, currency }: ProductGridProps) {
     }
   };
 
-  const getBadgeColor = (badge: string) => {
-    switch (badge) {
-      case "Best Seller":
-        return "bg-primary";
-      case "New":
-        return "bg-secondary";
-      case "Popular":
-        return "bg-primary";
-      case "Sale":
-        return "bg-destructive";
-      default:
-        return "bg-primary";
-    }
-  };
-
   if (products.length === 0) {
     return (
       <div className="text-center py-16">
@@ -79,15 +64,7 @@ export function ProductGrid({ products, currency }: ProductGridProps) {
                 alt={product.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
-              {/* {product.badge && (
-              <span
-                className={`absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded-full ${getBadgeColor(
-                  product.badge
-                )} text-white`}
-              >
-                {product.badge}
-              </span>
-            )} */}
+
               {!product.inStock && (
                 <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
                   <span className="text-white font-semibold">Out of Stock</span>
@@ -111,7 +88,7 @@ export function ProductGrid({ products, currency }: ProductGridProps) {
 
                 {/* Harga */}
                 <div className="flex items-center gap-2">
-                  <span className="text-lg font-bold text-orange-500">
+                  <span className="text-md font-bold text-orange-500">
                     {formatPrice(product.price[currency])}
                   </span>
                   {product.originalPrice && (

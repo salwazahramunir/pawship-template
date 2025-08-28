@@ -77,7 +77,7 @@ export function ProductImageGallery({
   return (
     <div className="space-y-4">
       {/* Main Image/Video Display */}
-      <div className="relative aspect-square bg-muted rounded-2xl overflow-hidden group">
+      <div className="relative aspect-square bg-muted rounded-lg overflow-hidden group">
         {isVideoMode ? (
           <video
             src={videos[currentVideoIndex]?.url}
@@ -95,20 +95,60 @@ export function ProductImageGallery({
 
         {/* Navigation Arrows */}
         <Button
-          variant="ghost"
-          size="sm"
-          className="absolute top-4 left-4 h-10 w-10 p-0 bg-background/80 hover:bg-background rounded-full"
+          variant="secondary"
+          size="icon"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
           onClick={prevImage}
         >
           <ChevronLeft className="h-4 w-4" />
         </Button>
         <Button
-          variant="ghost"
-          size="sm"
-          className="absolute top-4 right-4 h-10 w-10 p-0 bg-background/80 hover:bg-background rounded-full"
+          variant="secondary"
+          size="icon"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity"
           onClick={nextImage}
         >
           <ChevronRight className="h-4 w-4" />
+        </Button>
+
+        {/* Expand Button */}
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button
+              variant="secondary"
+              size="icon"
+              className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity"
+            >
+              <Expand className="h-4 w-4" />
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="max-w-4xl w-full">
+            <div className="aspect-square">
+              {isVideoMode ? (
+                <video
+                  src={videos[currentVideoIndex]?.url}
+                  poster={videos[currentVideoIndex]?.thumbnail}
+                  controls
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              ) : (
+                <img
+                  src={images[currentIndex] || "/placeholder.svg"}
+                  alt={`${productName} - Image ${currentIndex + 1}`}
+                  className="w-full h-full object-cover rounded-lg"
+                />
+              )}
+            </div>
+          </DialogContent>
+        </Dialog>
+
+        {/* Download Button */}
+        <Button
+          variant="secondary"
+          size="icon"
+          className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity"
+        >
+          <Download className="h-4 w-4" />
         </Button>
 
         {/* Media Type Badge */}

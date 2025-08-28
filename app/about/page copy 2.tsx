@@ -91,7 +91,7 @@ export default function AboutPage() {
         </section> */}
 
         <section
-          className="relative h-[60vh] overflow-hidden bg-cover bg-center"
+          className="relative h-[50vh] overflow-hidden bg-cover bg-center"
           style={{
             backgroundImage:
               "url('https://i.pinimg.com/736x/7e/56/bf/7e56bf491b5f5940a15a208f0f23a432.jpg')",
@@ -143,7 +143,6 @@ export default function AboutPage() {
                     of pet lovers worldwide.
                   </p>
                 </div>
-
                 <div className="group">
                   <div className="flex items-center gap-3 mb-6">
                     <div
@@ -186,7 +185,7 @@ export default function AboutPage() {
         </section>
 
         {/* Values */}
-        <section className="py-20  bg-[#FEF0EF] mx-10 rounded-3xl">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -202,7 +201,7 @@ export default function AboutPage() {
               {values.map((value, index) => (
                 <Card
                   key={index}
-                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white"
+                  className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg"
                 >
                   <CardContent className="p-8 text-center space-y-4">
                     <div
@@ -224,7 +223,7 @@ export default function AboutPage() {
         </section>
 
         {/* Timeline */}
-        <section className="py-20 m-10 bg-[#FFF2E2] rounded-3xl">
+        <section className="py-20">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
@@ -260,8 +259,8 @@ export default function AboutPage() {
                         <milestone.icon className="h-4 w-4 text-white" />
                       </div>
                     </div>
-                    <Card className="flex-1 group-hover:shadow-lg transition-shadow bg-white">
-                      <CardContent className="p-8 bg-[#FFFFFF]">
+                    <Card className="flex-1 group-hover:shadow-lg transition-shadow">
+                      <CardContent className="p-8">
                         <p className="text-xl text-gray-800 font-medium">
                           {milestone.event}
                         </p>
@@ -276,7 +275,7 @@ export default function AboutPage() {
 
         {/* Stats */}
         <section
-          className="py-20 text-primary-foreground m-10 rounded-3xl"
+          className="py-20 text-primary-foreground"
           style={{ background: `linear-gradient(to right, #FBBD87, #F69784)` }}
         >
           <div className="container mx-auto px-4">

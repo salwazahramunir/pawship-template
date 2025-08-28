@@ -130,9 +130,9 @@ const Payments = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-50">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
+      {/* <section className="py-20 bg-gradient-to-br from-primary/10 to-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center space-y-6">
             <Badge className="bg-primary text-primary-foreground">
@@ -146,6 +146,32 @@ const Payments = () => {
               support multiple payment options with bank-level security to
               protect your transactions.
             </p>
+          </div>
+        </div>
+      </section> */}
+
+      <section
+        className="relative h-[60vh] overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.pinimg.com/1200x/3f/b3/f8/3fb3f8ff5e7096d729bfe920797fc829.jpg')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        {/* Overlay hitam */}
+        <div className="relative z-10 flex items-center justify-center h-full text-white">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <Badge className="bg-primary text-primary-foreground">
+              Secure Payments
+            </Badge>
+            <h1 className="text-4xl lg:text-6xl font-bold">
+              Safe & <span className="text-primary">Convenient</span> Payments
+            </h1>
+            {/* <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Shop with confidence using your preferred payment method. We
+              support multiple payment options with bank-level security to
+              protect your transactions.
+            </p> */}
           </div>
         </div>
       </section>
@@ -194,7 +220,7 @@ const Payments = () => {
       </section>
 
       {/* Payment Methods */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-gradient-to-br from-orange-50 to-pink-50  mx-10 rounded-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -250,7 +276,7 @@ const Payments = () => {
       </section>
 
       {/* Security Features */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -279,10 +305,10 @@ const Payments = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Payment Process */}
-      <section className="py-16 bg-gradient-to-br from-orange-50 to-pink-50">
+      <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -293,7 +319,7 @@ const Payments = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 1
@@ -308,17 +334,6 @@ const Payments = () => {
               <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                 2
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Choose Currency</h3>
-              <p className="text-gray-600 text-sm">
-                We'll automatically detect your location or you can select
-                manually
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
               <h3 className="font-bold text-gray-900 mb-2">Select Payment</h3>
               <p className="text-gray-600 text-sm">
                 Choose your preferred payment method from our secure options
@@ -327,7 +342,7 @@ const Payments = () => {
 
             <div className="text-center">
               <div className="w-16 h-16 bg-orange-500 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                4
+                3
               </div>
               <h3 className="font-bold text-gray-900 mb-2">Complete Order</h3>
               <p className="text-gray-600 text-sm">
@@ -339,7 +354,7 @@ const Payments = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16">
+      {/* <section className="py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -391,7 +406,7 @@ const Payments = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };

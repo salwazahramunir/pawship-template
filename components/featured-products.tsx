@@ -92,7 +92,8 @@ const featuredProducts = [
 
 export function FeaturedProducts() {
   return (
-    <section className="py-16 bg-gradient-to-b from-orange-50/30 to-background">
+    // <section className="py-16 bg-gradient-to-b from-orange-50/30 to-background">
+    <section className="py-16">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <div className="space-y-2">

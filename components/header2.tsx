@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -28,17 +28,8 @@ export function Header() {
     { name: "Stores", href: "/stores" },
     { name: "Payments", href: "/payments" },
     { name: "Reseller", href: "/reseller" },
-    { name: "Blog", href: "/blog" },
   ];
   const pathname = usePathname(); // Dapatkan jalur saat ini
-
-  const searchRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (showSearch) {
-      searchRef.current?.focus();
-    }
-  }, [showSearch]);
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background">
@@ -66,30 +57,7 @@ export function Header() {
               />
             </Link>
 
-            <div className="hidden lg:flex h-12 items-center justify-center">
-              <nav className="flex items-center space-x-8">
-                {navigation.map((item) => {
-                  const isActive = pathname === item.href;
-
-                  return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={`text-sm font-medium text-foreground/80 ${
-                        isActive ? "text-primary" : ""
-                      } hover:text-primary transition-colors relative group py-3`}
-                    >
-                      {item.name}
-                      <span
-                        className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full`}
-                      ></span>
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
-
-            {/* {showSearch ? (
+            {showSearch ? (
               <div className="flex items-center space-x-2 flex-1 max-w-lg mx-4">
                 <div className="relative w-full">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
@@ -120,51 +88,21 @@ export function Header() {
                   />
                 </div>
               </div>
-            )} */}
-            <div className="flex items-center space-x-1 relative">
-              {showSearch && (
-                <>
-                  <div className="absolute top-10 w-full left-0 bg-white rounded-[5px] opacity-90">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                    <Input
-                      type="search"
-                      placeholder="Search products..."
-                      className="pl-10 pr-4 h-10 border-2 border-orange-200 focus:border-orange-400"
-                      ref={searchRef}
-                      onBlur={() => setShowSearch(false)}
-                    />
-                  </div>
-                  <Button
-                    // variant="ghost"
-                    size="icon"
-                    onClick={() => {
-                      setShowSearch(false);
-                    }}
-                    className="flex-shrink-0"
-                  >
-                    <X className="h-4 w-4" />
-                  </Button>
-                </>
-              )}
+            )}
+            <div className="flex items-center space-x-1">
               {!showSearch && (
                 <Button
                   variant="ghost"
                   size="icon"
-                  className=""
-                  onClick={() => {
-                    setShowSearch(true);
-                  }}
+                  className="md:hidden"
+                  onClick={() => setShowSearch(true)}
                 >
                   <Search className="h-5 w-5" />
                 </Button>
               )}
 
               {/* Location Selector */}
-              <p className="flex items-center space-x-1 px-3">
-                <MapPin className="h-4 w-4 text-orange-500" />
-                <span className="hidden sm:block text-sm">Jakarta</span>
-              </p>
-              {/* <DropdownMenu>
+              <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
@@ -201,7 +139,7 @@ export function Header() {
                     Kuala Lumpur, Malaysia
                   </DropdownMenuItem>
                 </DropdownMenuContent>
-              </DropdownMenu> */}
+              </DropdownMenu>
 
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -285,7 +223,7 @@ export function Header() {
             </div>
           </div>
 
-          {/* <div className="hidden lg:flex h-12 items-center justify-center border-t border-border/50">
+          <div className="hidden lg:flex h-12 items-center justify-center border-t border-border/50">
             <nav className="flex items-center space-x-8">
               {navigation.map((item) => {
                 const isActive = pathname === item.href;
@@ -302,11 +240,16 @@ export function Header() {
                     <span
                       className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full`}
                     ></span>
+                    {/* <span
+                      className={`absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full  ${
+                        isActive ? "w-full" : ""
+                      }`}
+                    ></span> */}
                   </Link>
                 );
               })}
             </nav>
-          </div> */}
+          </div>
         </div>
       </div>
     </header>

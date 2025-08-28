@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useParams } from "next/navigation"
-import { ProductImageGallery } from "@/components/product/product-image-gallery"
-import { ProductInfo } from "@/components/product/product-info"
-import { ProductTabs } from "@/components/product/product-tabs"
-import { RelatedProducts } from "@/components/product/related-products"
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import { ProductImageGallery } from "@/components/product/product-image-gallery";
+import { ProductInfo } from "@/components/product/product-info";
+import { ProductTabs } from "@/components/product/product-tabs";
+import { RelatedProducts } from "@/components/product/related-products";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -13,19 +13,23 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
+} from "@/components/ui/breadcrumb";
 
 // Mock product data - in real app this would come from API
 const mockProduct = {
   id: 1,
-  name: "Premium Dog Harness with Reflective Strips",
+  name: "Emily Dress",
   brand: "PawPremium",
   sku: "PP-DH-001",
-  price: { IDR: 299000, USD: 20, SGD: 27 },
-  originalPrice: { IDR: 399000, USD: 27, SGD: 36 },
+  price: {
+    IDR: 135000,
+    USD: Math.round((135000 / 299000) * 20),
+    SGD: Math.round((135000 / 299000) * 27),
+  },
+  originalPrice: { IDR: 139000, USD: 27, SGD: 36 },
   rating: 4.8,
   reviews: 124,
-  category: "clothing",
+  category: "Clothings",
   subcategory: "harnesses",
   inStock: true,
   stockCount: 45,
@@ -49,11 +53,8 @@ const mockProduct = {
     warranty: "1 Year",
   },
   images: [
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
-    "/placeholder.svg?height=600&width=600",
+    "https://assets-alpha.ass8c.upcloudobjects.com/lcalpfppqguq0roimuqk0a/images/shopee_post_-_2024-11-07t125845.277.png",
+    "https://assets-alpha.ass8c.upcloudobjects.com/lcalpfppqguq0roimuqk0a/images/shopee_post_-_2024-11-07t125852.193.png",
   ],
   videos: [
     {
@@ -68,37 +69,30 @@ const mockProduct = {
       name: "Size",
       options: [
         {
-          value: "XS",
-          label: "Extra Small",
-          price: { IDR: 299000, USD: 20, SGD: 27 },
-          stock: 12,
-          measurements: "Chest: 30-35cm, Neck: 20-25cm",
-        },
-        {
           value: "S",
           label: "Small",
-          price: { IDR: 299000, USD: 20, SGD: 27 },
+          price: { IDR: 140000, USD: 20, SGD: 27 },
           stock: 15,
           measurements: "Chest: 35-45cm, Neck: 25-30cm",
         },
         {
           value: "M",
           label: "Medium",
-          price: { IDR: 319000, USD: 22, SGD: 29 },
+          price: { IDR: 140000, USD: 22, SGD: 29 },
           stock: 8,
           measurements: "Chest: 45-55cm, Neck: 30-35cm",
         },
         {
           value: "L",
           label: "Large",
-          price: { IDR: 339000, USD: 23, SGD: 31 },
+          price: { IDR: 145000, USD: 23, SGD: 31 },
           stock: 6,
           measurements: "Chest: 55-65cm, Neck: 35-40cm",
         },
         {
           value: "XL",
           label: "Extra Large",
-          price: { IDR: 359000, USD: 25, SGD: 33 },
+          price: { IDR: 145000, USD: 25, SGD: 33 },
           stock: 4,
           measurements: "Chest: 65-75cm, Neck: 40-45cm",
         },
@@ -116,7 +110,8 @@ const mockProduct = {
     },
   ],
   customSizeAvailable: true,
-  customSizeInfo: "Need a custom size? Contact us with your pet's measurements and we'll create a perfect fit!",
+  customSizeInfo:
+    "Need a custom size? Contact us with your pet's measurements and we'll create a perfect fit!",
   labels: ["Pre-Order Available", "Fast Shipping", "Vet Recommended"],
   downloadableContent: [
     {
@@ -138,44 +133,50 @@ const mockProduct = {
       url: "/downloads/sizing-guide.pdf",
     },
   ],
-}
+};
 
 export default function ProductDetailPage() {
-  const params = useParams()
-  const [product, setProduct] = useState(mockProduct)
+  const params = useParams();
+  const [product, setProduct] = useState(mockProduct);
   const [selectedVariations, setSelectedVariations] = useState({
     size: "M",
     color: "black",
-  })
-  const [currency, setCurrency] = useState("IDR")
+  });
+  const [currency, setCurrency] = useState("IDR");
 
   // Detect user location and set currency
   useEffect(() => {
     const detectLocation = () => {
-      const userLang = navigator.language
-      if (userLang.includes("en-US")) setCurrency("USD")
-      else if (userLang.includes("en-SG")) setCurrency("SGD")
-      else setCurrency("IDR")
-    }
-    detectLocation()
-  }, [])
+      const userLang = navigator.language;
+      if (userLang.includes("en-US")) setCurrency("USD");
+      else if (userLang.includes("en-SG")) setCurrency("SGD");
+      else setCurrency("IDR");
+    };
+    detectLocation();
+  }, []);
 
   // Calculate current price based on selected variations
   const getCurrentPrice = () => {
-    const sizeVariation = product.variations.find((v) => v.type === "size")
-    const selectedSize = sizeVariation?.options.find((opt) => opt.value === selectedVariations.size)
-    return selectedSize?.price || product.price
-  }
+    const sizeVariation = product.variations.find((v) => v.type === "size");
+    const selectedSize = sizeVariation?.options.find(
+      (opt) => opt.value === selectedVariations.size
+    );
+    return selectedSize?.price || product.price;
+  };
 
   // Calculate current stock based on selected variations
   const getCurrentStock = () => {
-    const sizeVariation = product.variations.find((v) => v.type === "size")
-    const colorVariation = product.variations.find((v) => v.type === "color")
-    const selectedSize = sizeVariation?.options.find((opt) => opt.value === selectedVariations.size)
-    const selectedColor = colorVariation?.options.find((opt) => opt.value === selectedVariations.color)
+    const sizeVariation = product.variations.find((v) => v.type === "size");
+    const colorVariation = product.variations.find((v) => v.type === "color");
+    const selectedSize = sizeVariation?.options.find(
+      (opt) => opt.value === selectedVariations.size
+    );
+    const selectedColor = colorVariation?.options.find(
+      (opt) => opt.value === selectedVariations.color
+    );
 
-    return Math.min(selectedSize?.stock || 0, selectedColor?.stock || 0)
-  }
+    return Math.min(selectedSize?.stock || 0, selectedColor?.stock || 0);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -191,12 +192,12 @@ export default function ProductDetailPage() {
               <BreadcrumbLink href="/catalog">Catalog</BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>
+            {/* <BreadcrumbItem>
               <BreadcrumbLink href={`/catalog?category=${product.category}`}>
                 {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
               </BreadcrumbLink>
             </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            <BreadcrumbSeparator /> */}
             <BreadcrumbItem>
               <BreadcrumbPage>{product.name}</BreadcrumbPage>
             </BreadcrumbItem>
@@ -206,7 +207,11 @@ export default function ProductDetailPage() {
         {/* Product Details */}
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Product Images */}
-          <ProductImageGallery images={product.images} videos={product.videos} productName={product.name} />
+          <ProductImageGallery
+            images={product.images}
+            videos={product.videos}
+            productName={product.name}
+          />
 
           {/* Product Info */}
           <ProductInfo
@@ -224,8 +229,11 @@ export default function ProductDetailPage() {
         <ProductTabs product={product} />
 
         {/* Related Products */}
-        <RelatedProducts category={product.category} currentProductId={product.id} />
+        <RelatedProducts
+          category={product.category}
+          currentProductId={product.id}
+        />
       </main>
     </div>
-  )
+  );
 }
