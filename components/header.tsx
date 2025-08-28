@@ -55,12 +55,9 @@ export function Header() {
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between py-3">
-            <Link
-              href="/"
-              className="flex items-center space-x-2 flex-shrink-0"
-            >
+            <Link href="" className="flex items-center space-x-2 flex-shrink-0">
               <img
-                src="/images/logo.png"
+                src="/images/logo-transparan.png"
                 alt="Logo Pawship"
                 className="h-16 w-auto md:h-20" // Atur ukuran logo
               />
